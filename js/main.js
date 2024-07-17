@@ -1,11 +1,9 @@
 console.log("JavaScript is connected");
 //Variable
-const theButtons = document.querySelectorAll("#buttonHolder img");
+const theButtons = document.querySelectorAll("#buttons");
 
-const puzzleBoard = document.querySelector(".puzzle-board");
-const puzzlePieces = document.querySelectorAll(".puzzle-pieces img");
 const dropZones = document.querySelectorAll(".drop-zone");
-const puzzlePieceDiv = document.querySelector(".puzzle-pieces");
+const instruments = document.querySelectorAll(".instruments-pieces img");
 let dragPiece;
 
 //function
@@ -60,7 +58,7 @@ function dropped() {
 //event
 
 theButtons.forEach((button) => button.addEventListener("click", changeBGImage));
-puzzlePieces.forEach((piece) =>
+instruments.forEach((piece) =>
   piece.addEventListener("dragstart", handlestartDrag)
 );
 dropZones.forEach((zone) => zone.addEventListener("dragover", handleOver));
