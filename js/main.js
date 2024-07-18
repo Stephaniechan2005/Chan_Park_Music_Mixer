@@ -4,9 +4,31 @@ const theButtons = document.querySelectorAll("#buttons");
 
 const dropZones = document.querySelectorAll(".drop-zone");
 const instruments = document.querySelectorAll(".instruments-pieces img");
+(playButton = document.querySelector("#playButton")),
+  (pauseButton = document.querySelector("#pauseButton")),
+  (stopButton = document.querySelector("#stopButton")),
+  (volSlider = document.querySelector("#volumeControl"));
 let dragPiece;
 
 //function
+function playAudio() {
+  theAudioEl.play();
+}
+
+function pauseAudio() {
+  theAudioEl.pause();
+}
+
+function restartAudio() {
+  theAudioEl.currentTime = 0;
+  playAudio();
+}
+
+function setVolume() {
+  console.log(this.value);
+  theAudioEl.volume = this.value / 100;
+}
+
 function changeBGImage(event) {
   console.log("changeBGImage called");
   //Method 1
@@ -43,12 +65,6 @@ function handleOver(e) {
 }
 
 function dropped() {
-  // Method 1 check is there any image before the first puzzle drop
-  // if (this.children.length < 1) {
-  // this.appendChild(dragPiece);
-  //}
-
-  //Method 2 check is there any image after the first puzzle drop
   if (this.children.length >= 1) {
     return;
   }
@@ -63,3 +79,7 @@ instruments.forEach((piece) =>
 );
 dropZones.forEach((zone) => zone.addEventListener("dragover", handleOver));
 dropZones.forEach((zone) => zone.addEventListener("drop", dropped));
+playButton.addEventListener("click", playAudio);
+pauseButton.addEventListener("click", pauseAudio);
+stopButton.addEventListener("click", restartAudio);
+volSlider.addEventListener("change", setVolume);
