@@ -4,10 +4,10 @@ const theButtons = document.querySelectorAll("#buttons");
 
 const dropZones = document.querySelectorAll(".drop-zone");
 const instruments = document.querySelectorAll(".instruments-pieces img");
-(playButton = document.querySelector("#playButton")),
-  (pauseButton = document.querySelector("#pauseButton")),
-  (stopButton = document.querySelector("#stopButton")),
-  (volSlider = document.querySelector("#volumeControl"));
+const playButton = document.querySelector("#playButton"),
+  pauseButton = document.querySelector("#pauseButton"),
+  stopButton = document.querySelector("#stopButton"),
+  volSlider = document.querySelector("#volumeControl");
 let dragPiece;
 
 //function
