@@ -1,13 +1,22 @@
 console.log("JavaScript is connected");
+
+// Variables
 const dropZones = document.querySelectorAll(".drop-zone");
 const instruments = document.querySelectorAll(".instruments-pieces img");
 const playButton = document.querySelector("#playButton"),
   pauseButton = document.querySelector("#pauseButton"),
   stopButton = document.querySelector("#stopButton"),
-      
+  resetButton = document.querySelector("#resetButton"),
+  volSlider = document.querySelector("#volumeControl");
+
 let dragPiece;
 let playingAudios = [];
 const originalPositions = [];
+
+// Save the original positions of instruments
+instruments.forEach(instrument => {
+  originalPositions.push(instrument.parentElement);
+});
 
 // Functions
 function playAudio() {
@@ -84,9 +93,12 @@ function resetPositions() {
   playingAudios = [];
 }
 
+// Events
+instruments.forEach((piece) => piece.addEventListener("dragstart", handlestartDrag));
 dropZones.forEach((zone) => zone.addEventListener("dragover", handleOver));
 dropZones.forEach((zone) => zone.addEventListener("drop", dropped));
 playButton.addEventListener("click", playAudio);
 pauseButton.addEventListener("click", pauseAudio);
 stopButton.addEventListener("click", restartAudio);
-
+resetButton.addEventListener("click", resetPositions);
+volSlider.addEventListener("change", setVolume);
