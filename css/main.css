@@ -142,8 +142,19 @@ body {
   width: 120px;
   height: 120px;
 }
+#stopButton {
+  width: 30px;
+  height: 30px;
+}
+
+#pauseButton {
+  width: 30px;
+  height: 30px;
+}
 
 #playButton {
+  width: 25px;
+  height: 25px;
   margin-top: -5px;
 }
 
