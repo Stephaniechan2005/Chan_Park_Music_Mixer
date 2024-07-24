@@ -7,11 +7,13 @@ const playButton = document.querySelector("#playButton"),
   pauseButton = document.querySelector("#pauseButton"),
   stopButton = document.querySelector("#stopButton"),
   resetButton = document.querySelector("#resetButton"),
-  volSlider = document.querySelector("#volumeControl");
-
+  volSlider = document.querySelector("#volumeControl"),
+  pitchupButton = document.querySelector("#pitchupButton"),
+  pitchdownButton = document.querySelector("#pitchdownButton");
 let dragPiece;
 let playingAudios = [];
 const originalPositions = [];
+let currentPitch = 1;
 
 // Save the original positions of instruments
 instruments.forEach((instrument) => {
@@ -76,7 +78,9 @@ function dropped() {
     audioElement.currentTime = 0;
     audioElement.play();
   }
-  audio.play();
+  playingAudios.forEach((audio) => {
+    audio.play();
+  });
 }
 
 function resetPositions() {
@@ -93,6 +97,78 @@ function resetPositions() {
   playingAudios = [];
 }
 
+function pitchUp() {
+  const pitch = ["lower", "original", "higher"];
+
+  const instrumentNames = [
+    "drum",
+    "cello",
+    "guitar",
+    "piano",
+    "violin",
+    "trumpets",
+  ];
+  currentPitch++;
+  if (currentPitch >= pitch.length) {
+    currentPitch = 0;
+  }
+  console.log(currentPitch);
+
+  playingAudios.forEach((audio) => {
+    audio.pause();
+  });
+
+  instruments.forEach((instrument, index) => {
+    const instrumentName = instrumentNames[index];
+    const trackId = instrument.getAttribute("data-track");
+    const audioElement = document.getElementById(trackId);
+
+    if (audioElement) {
+      audioElement.src = `audio/${instrumentName}_${pitch[currentPitch]}.mp3`;
+      audioElement.currentTime = 0;
+      if (playingAudios.includes(audioElement)) {
+        audioElement.play();
+      }
+    }
+  });
+}
+
+function pitchDown() {
+  const pitch = ["lower", "original", "higher"];
+
+  const instrumentNames = [
+    "drum",
+    "cello",
+    "guitar",
+    "piano",
+    "violin",
+    "trumpets",
+  ];
+  currentPitch--;
+  if (currentPitch < 0) {
+    currentPitch = pitch.length - 1;
+  }
+  console.log(currentPitch);
+
+  playingAudios.forEach((audio) => {
+    audio.pause();
+  });
+
+  instruments.forEach((instrument, index) => {
+    const instrumentName = instrumentNames[index];
+    const trackId = instrument.getAttribute("data-track");
+    const audioElement = document.getElementById(trackId);
+
+    if (audioElement) {
+      audioElement.src = `audio/${instrumentName}_${pitch[currentPitch]}.mp3`;
+      audioElement.currentTime = 0;
+      if (playingAudios.includes(audioElement)) {
+        audioElement.play();
+      }
+    }
+  });
+}
+
 // Events
 instruments.forEach((piece) =>
   piece.addEventListener("dragstart", handlestartDrag)
@@ -104,3 +180,5 @@ pauseButton.addEventListener("click", pauseAudio);
 stopButton.addEventListener("click", restartAudio);
 resetButton.addEventListener("click", resetPositions);
 volSlider.addEventListener("change", setVolume);
+pitchupButton.addEventListener("click", pitchUp);
+pitchdownButton.addEventListener("click", pitchDown);
