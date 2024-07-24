@@ -147,3 +147,52 @@ body {
   width: 10px;
   height: 10px;
 }
+
+/* lightbox rules */
+
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.786);
+
+  display: none;
+}
+
+.lightbox_close {
+  position: relative;
+  top: 20px;
+  left: 95%;
+  color: #ffffff;
+  font-size: 46px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s linear;
+}
+
+.lightbox_close:hover {
+  color: rgb(139, 17, 17);
+}
+
+.lightbox article {
+  width: 60%;
+  margin-left: 20%;
+  padding-top: 50px;
+}
+
+.lb_text {
+  line-height: 28px;
+  color: #ffffff;
+}
+
+.lb_heading {
+  font-size: 34px;
+  color: #ffffff;
+}
+
+.lightbox:target {
+  display: block;
+}
