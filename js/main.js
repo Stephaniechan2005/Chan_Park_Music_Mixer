@@ -14,32 +14,32 @@ let playingAudios = [];
 const originalPositions = [];
 
 // Save the original positions of instruments
-instruments.forEach(instrument => {
+instruments.forEach((instrument) => {
   originalPositions.push(instrument.parentElement);
 });
 
 // Functions
 function playAudio() {
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.play();
   });
 }
 
 function pauseAudio() {
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.pause();
   });
 }
 
 function restartAudio() {
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.currentTime = 0;
     audio.play();
   });
 }
 
 function setVolume() {
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.volume = this.value / 100;
   });
 }
@@ -61,15 +61,14 @@ function dropped() {
   this.appendChild(dragPiece);
 
   // Restart and play all currently playing audios
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.currentTime = 0;
-    audio.play();
   });
 
   // Play corresponding audio
   const trackId = dragPiece.getAttribute("data-track");
   const audioElement = document.getElementById(trackId);
-  
+
   if (audioElement) {
     if (!playingAudios.includes(audioElement)) {
       playingAudios.push(audioElement);
@@ -77,6 +76,7 @@ function dropped() {
     audioElement.currentTime = 0;
     audioElement.play();
   }
+  audio.play();
 }
 
 function resetPositions() {
@@ -86,7 +86,7 @@ function resetPositions() {
   });
 
   // Stop all playing audios and clear the playingAudios array
-  playingAudios.forEach(audio => {
+  playingAudios.forEach((audio) => {
     audio.pause();
     audio.currentTime = 0;
   });
@@ -94,7 +94,9 @@ function resetPositions() {
 }
 
 // Events
-instruments.forEach((piece) => piece.addEventListener("dragstart", handlestartDrag));
+instruments.forEach((piece) =>
+  piece.addEventListener("dragstart", handlestartDrag)
+);
 dropZones.forEach((zone) => zone.addEventListener("dragover", handleOver));
 dropZones.forEach((zone) => zone.addEventListener("drop", dropped));
 playButton.addEventListener("click", playAudio);
