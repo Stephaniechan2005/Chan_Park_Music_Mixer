@@ -7,6 +7,7 @@ Ignore the color for each box. I put random color to identify each element.
   margin: 0;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -15,12 +16,18 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-family: Arial,sans-serif;
 }
 
 #main-nav {
   max-width: 100%;
   height: 70px;
   background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color .3s ease;
+}
+
+#main-nav:hover {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 #main-nav ul {
@@ -33,6 +40,11 @@ body {
 
 #main-nav ul li a {
   color: rgba(255, 255, 255, 0.9);
+  transition: color .3s ease;
+}
+
+#main-nav ul li a:hover {
+  color: #ffcc00;
 }
 
 #content {
@@ -43,7 +55,6 @@ body {
 }
 
 #left-drop-box {
-  width: 150px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -52,16 +63,19 @@ body {
 
 #left-drop-box .drop-zone-area,
 #right-drop-box .drop-zone-area {
-  width: 200px;
-  height: 140px;
-  /* background-color: beige; */
+  width: 70px;
+  height: 150px;
   text-align: center;
-  /* border: 2px solid #000; */
   margin-bottom: 10px;
+  transition: transform .3s ease;
+}
+
+#left-drop-box:hover .drop-zone-area,
+#right-drop-box:hover .drop-zone-area {
+  transform: scale(1.05);
 }
 
 #middle-box {
-  width: 550px;
   height: 100px;
   background-color: #747474;
   border: 4px solid #fff;
@@ -73,19 +87,32 @@ body {
   color: white;
   margin-top: 90px;
   transform: translateX(18px);
+  margin-right: 5px;
+  margin-left: 5px;
+  transition: transform .3s ease;
+}
+
+#middle-box:hover {
+  transform: translateX(20px) scale(1.05);
 }
 
 #middle-box .buttons {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 #middle-box button {
   background: none;
   border: none;
-  font-size: 2em;
+  font-size: 1.5em;
   cursor: pointer;
   color: #fff;
+  transition: transform .3s ease, color .3s ease;
+}
+
+#middle-box button:hover {
+  transform: scale(1.2);
+  color: #ffcc00;
 }
 
 .zone {
@@ -136,14 +163,154 @@ body {
   border: 3px solid #fff;
   border-radius: 5px;
   color: #fff;
+  transition: transform .3s ease;
+}
+
+#instruments div:hover {
+  transform: scale(1.1);
 }
 
 .instruments-image {
   width: 120px;
   height: 120px;
+  transition: transform .3s ease;
+}
+
+.instruments-image:hover {
+  transform: rotate(15deg) scale(1.2);
 }
 
 #playButton {
   width: 10px;
   height: 10px;
+}
+
+#stopButton img,
+#pauseButton img,
+#pauseButton img {
+  transition: transform .3s ease;
+}
+
+#stopButton img:hover,
+#pauseButton img:hover,
+#pauseButton img:hover {
+  transform: rotate(360deg);
+}
+
+#stopButton img,
+#pauseButton img,
+#playButton img {
+  width: 20px;
+  height: 20px;
+}
+
+/* lightbox */
+
+.lightbox {
+  width: 100vw;
+  height: 200vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  transition: opacity .3s ease;
+}
+
+.lightbox_close {
+  position: relative;
+  top: 20px;
+  left: 95%;
+  color: #fff;
+  font-size: 46px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color .3s linear;
+}
+
+.lightbox_close:hover {
+  color:rgb(139, 17, 17);
+}
+
+.lightbox article {
+  width: 60%;
+  margin-left: 20%;
+  padding-top: 50px;
+}
+
+.lb_text {
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.lb_heading {
+  font-size: 34px;
+  color: #ffffff;
+}
+
+.lightbox:target {
+  display: block;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  #left-drop-box {
+    width: 150px;
+    height: auto;
+  }
+
+  #left-drop-box .drop-zone-area,
+  #right-drop-box .drop-zone-area {
+    width: 200px;
+    height: 140px;
+    margin-bottom: 10px;
+  }
+  .drop-zone {
+    width: 130px;
+    height: 130px;
+  }
+  #middle-box {
+    width: 550px;
+    height: 100px;
+  }
+  #middle-box .buttons {
+    gap: 30px;
+  }
+  .lightbox {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .instruments-image {
+    width: 120px;
+    height: 120px;
+  }
+  #instruments div {
+    width: 150px;
+    height: 130px;
+  }
+  #stopButton img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #pauseButton img {
+    width: 30px;
+    height: 30px;
+  }
+  #playButton img {
+    width: 25px;
+    height: 25px;
+  }
+  #playButton {
+    margin-top: -5px;
+  }
+  #middle-box button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #fff;
+  }
 }
