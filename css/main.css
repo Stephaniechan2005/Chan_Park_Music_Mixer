@@ -47,8 +47,6 @@ body {
 }
 
 #left-drop-box {
-  width: 150px;
-  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,8 +54,8 @@ body {
 
 #left-drop-box .drop-zone-area,
 #right-drop-box .drop-zone-area {
-  width: 200px;
-  height: 140px;
+  width: 70px;
+  height: 150px;
   /* background-color: beige; */
   text-align: center;
   /* border: 2px solid #000; */
@@ -65,7 +63,6 @@ body {
 }
 
 #middle-box {
-  width: 550px;
   height: 100px;
   background-color: #747474;
   border: 4px solid #fff;
@@ -77,17 +74,19 @@ body {
   color: white;
   margin-top: 90px;
   transform: translateX(18px);
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 #middle-box .buttons {
   display: flex;
-  gap: 30px;
+  gap: 5px;
 }
 
 #middle-box button {
   background: none;
   border: none;
-  font-size: 2em;
+  font-size: 1.5em;
   cursor: pointer;
   color: #fff;
 }
@@ -101,8 +100,8 @@ body {
 }
 
 .drop-zone {
-  width: 130px;
-  height: 130px;
+  width: 70px;
+  height: 70px;
   background-color: #322626;
   display: flex;
   align-items: center;
@@ -117,7 +116,6 @@ body {
 }
 
 #instruments {
-  width: 1200px;
   height: 200px;
   /* background-color: antiquewhite; */
   display: flex;
@@ -131,8 +129,8 @@ body {
 }
 
 #instruments div {
-  width: 150px;
-  height: 130px;
+  width: 70px;
+  height: 70px;
   background-color: rgb(122, 0, 0);
   display: flex;
   align-items: center;
@@ -143,33 +141,29 @@ body {
 }
 
 .instruments-image {
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
 }
 #stopButton img {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 #pauseButton img {
-  width: 30px;
-  height: 30px;
-}
-
-#playButton {
-  margin-top: -5px;
+  width: 20px;
+  height: 20px;
 }
 
 #playButton img {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
 /* lightbox rules */
 
 .lightbox {
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -212,4 +206,63 @@ body {
 
 .lightbox:target {
   display: block;
+}
+
+@media screen and (min-width: 768px) {
+  #left-drop-box {
+    width: 150px;
+    height: auto;
+  }
+  #left-drop-box .drop-zone-area,
+  #right-drop-box .drop-zone-area {
+    width: 200px;
+    height: 140px;
+    margin-bottom: 10px;
+  }
+  .drop-zone {
+    width: 130px;
+    height: 130px;
+  }
+  #middle-box {
+    width: 550px;
+    height: 100px;
+  }
+  #middle-box .buttons {
+    gap: 30px;
+  }
+  .lightbox {
+    width: 100vw;
+    height: 100vh;
+  }
+  .instruments-image {
+    width: 120px;
+    height: 120px;
+  }
+  #instruments div {
+    width: 150px;
+    height: 130px;
+  }
+  #stopButton img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #pauseButton img {
+    width: 30px;
+    height: 30px;
+  }
+  #playButton img {
+    width: 25px;
+    height: 25px;
+  }
+  #playButton {
+    margin-top: -5px;
+  }
+  #middle-box button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #fff;
+  }
 }
