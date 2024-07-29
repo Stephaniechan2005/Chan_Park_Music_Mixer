@@ -1,14 +1,15 @@
 # Chan_Park_Music_Mixer
 
-This repo is for Music Mixer
+Welcome to the Music Mixer project! This repository contains the source code for a web-based music mixing tool.
 
 ## Installation
 
-There is no installation process required. Simply download the files to your computer.
+No installation is required. Simply download or clone the repository to your local machine.
+
 
 ## Usage
-
-Open index.html in your browser of choice.
+1. Navigate to the project's root directory.
+2. Open index.html in your preferred web browser to start using the Music Mixer.
 
 ## Contributing
 
@@ -20,12 +21,12 @@ Open index.html in your browser of choice.
 
 ## History
 
-TODO: Write history
+TODO: Provide a brief history of the project, including major milestones and updates.
 
 ## Credits
 
-Chan Wing Lam Stephanie and Kyuri Park
+Chan Wing Lam Stephanie & Kyuri Hailie Park
 
 ## License
 
-MIT - See included license file.
+This project is licensed under the MIT License. See the LICENSE file for details.
