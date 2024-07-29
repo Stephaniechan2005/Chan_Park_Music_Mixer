@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Mixer</title>
     <link href="css/main.css" rel="stylesheet" />
+    <link href="css/grid.css" rel="stylesheet" />
   </head>
   <body>
     <header>
       <nav id="main-nav">
         <ul>
           <li><a href="#">Music Mixer</a></li>
-          <li><a href="#">How to use</a></li>
+          <li><a href="#lightbox1">How to use</a></li>
         </ul>
       </nav>
     </header>
 
     <div id="content">
       <section id="left-drop-box">
+        <h2 class="hidden">Left drop box</h2>
         <div class="drop-zone-area">
           <div class="zone">
             <div class="drop-zone z1"></div>
@@ -38,30 +40,20 @@
       <div id="middle-box">
         <div class="buttons">
           <button id="resetButton">↻</button>
+          <!-- <button id="toneupButton">up</button> -->
           <button id="stopButton">
-            <img
-              src="images/stop-solid.svg"
-              alt="rewind button"
-              width="20px"
-              height="20px"
-            />
+            <img src="images/stop-solid.svg" alt="rewind button" />
           </button>
           <button id="playButton">
-            <img
-              src="images/play-solid.svg"
-              alt="play button"
-              width="20px"
-              height="20px"
-            />
+            <img src="images/play-solid.svg" alt="play button" />
           </button>
           <button id="pauseButton">
-            <img
-              src="images/pause-solid.svg"
-              alt="pause button"
-              width="20px"
-              height="20px"
-            />
+            <img src="images/pause-solid.svg" alt="pause button" />
           </button>
+          <button id="pitchupButton">↑</button>
+          <button id="pitchdownButton">↓</button>
+
+          <!-- x -->
           <input id="volumeControl" type="range" min="0" max="100" step="1" />
           <!-- <button>⏮</button>
             <button>⏸</button>
@@ -71,6 +63,7 @@
       </div>
 
       <section id="right-drop-box">
+        <h2 class="hidden">Right drop box</h2>
         <div class="drop-zone-area">
           <div class="zone">
             <div class="drop-zone z4"></div>
@@ -88,12 +81,15 @@
         </div>
       </section>
 
-      <section id="instruments">
+      <section id="instruments" class="grid-con col-span-full">
+        <h2 class="hidden">Instruments</h2>
         <div class="instruments-pieces">
           <img
             src="images/drum.svg"
             class="instruments-image"
             alt="drum"
+            data-track="audio_drum"
+            draggable="true"
           />
         </div>
         <div class="instruments-pieces">
@@ -101,6 +97,8 @@
             src="images/cello.svg"
             class="instruments-image"
             alt="Cello"
+            data-track="audio_cello"
+            draggable="true"
           />
         </div>
         <div class="instruments-pieces">
@@ -108,6 +106,8 @@
             src="images/guitar.svg"
             class="instruments-image"
             alt="Guitar"
+            data-track="audio_guitar"
+            draggable="true"
           />
         </div>
         <div class="instruments-pieces">
@@ -115,6 +115,8 @@
             src="images/piano.svg"
             class="instruments-image"
             alt="Piano"
+            data-track="audio_piano"
+            draggable="true"
           />
         </div>
         <div class="instruments-pieces">
@@ -122,13 +124,17 @@
             src="images/violin.svg"
             class="instruments-image"
             alt="Violin"
+            data-track="audio_violin"
+            draggable="true"
           />
         </div>
         <div class="instruments-pieces">
           <img
             src="images/trumpet.svg"
             class="instruments-image"
-            alt="Trumpet"n
+            alt="Trumpet"
+            data-track="audio_trumpet"
+            draggable="true"
           />
         </div>
       </section>
@@ -139,6 +145,49 @@
     <audio id="audio_piano" src="audio/piano_original.mp3"></audio>
     <audio id="audio_violin" src="audio/violin_original.mp3"></audio>
     <audio id="audio_trumpet" src="audio/trumpets_original.mp3"></audio>
+
+    <section class="lightbox" id="lightbox1">
+      <h2 class="hidden">How to use</h2>
+      <a href="" class="lightbox_close">X</a>
+      <article>
+        <h3 class="lb_heading">How to Play: The Fun and Easy Way!</h3>
+        <p class="lb_text">
+          <br />
+          1. Pick Your Instrument: Meet the quirky crew: Drum, Cello, Guitar,
+          Piano, Violin, and Trumpet! Just drag and drop these musical
+          characters into any of the drop zones. No musical skills required—just
+          a love for fun!
+          <br /><br />
+          2. Automatic Jam Session: As soon as you drop an instrument into a
+          drop zone, it starts playing automatically. It's like magic—no
+          buttons, no fuss! Just enjoy the instant tunes.
+          <br /><br />
+          3. Control the Beat: Feeling like a DJ? Use the play, pause, and stop
+          buttons to control your masterpiece. Need a break? Hit pause. Want to
+          hear it again? Hit play. It's all in your hands!
+          <br /><br />
+          4. Reset for a Fresh Start: Did things get a little wild? Hit the
+          reset button (↻) to send your instruments back to their original spots
+          and start fresh. It's like a musical rewind button!
+          <br /><br />
+          5. Volume Fun: Adjust the volume slider to set the perfect mood. Crank
+          it up to rock out or bring it down for a mellow vibe. You're the
+          master of the mix!
+          <br /><br />
+          6. Mix and Match: Don't stop at one tune! Keep dragging and dropping
+          instruments to create endless combinations. Who knew mixing music
+          could be this much fun?
+          <br /><br />
+          7. Pitch Adjustment: Pitch Up: Click the pitch-up button to change the
+          pitch of the instruments to higher levels, cycling through available
+          pitch settings. Pitch Down: Use the pitch-down button to lower the
+          pitch, cycling through the settings.
+          <br /><br />
+          8. Have a Blast: There are no rules—just music and fun! Experiment,
+          enjoy, and maybe even surprise yourself with your musical creations.
+        </p>
+      </article>
+    </section>
     <script src="js/main.js"></script>
   </body>
 </html>
