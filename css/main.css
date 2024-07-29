@@ -11,6 +11,7 @@ Ignore the color for each box. I put random color to identify each element.
   margin: 0;
   list-style: none;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -19,12 +20,18 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  font-family: Arial, sans-serif;
 }
 
 #main-nav {
   max-width: 100%;
   height: 70px;
   background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color .3s ease;
+}
+
+#main-nav:hover {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 #main-nav ul {
@@ -37,6 +44,11 @@ body {
 
 #main-nav ul li a {
   color: rgba(255, 255, 255, 0.9);
+  transition: color .3s ease;
+}
+
+#main-nav ul li a:hover {
+  color: #ffcc00;
 }
 
 #content {
@@ -56,10 +68,14 @@ body {
 #right-drop-box .drop-zone-area {
   width: 70px;
   height: 150px;
-  /* background-color: beige; */
   text-align: center;
-  /* border: 2px solid #000; */
   margin-bottom: 10px;
+  transition: transform .3s ease;
+}
+
+#left-drop-box:hover .drop-zone-area,
+#right-drop-box:hover .drop-zone-area {
+  transform: scale(1.05);
 }
 
 #middle-box {
@@ -76,6 +92,11 @@ body {
   transform: translateX(18px);
   margin-right: 5px;
   margin-left: 5px;
+  transition: transform .3s ease;
+}
+
+#middle-box:hover {
+  transform: translateX(20px) scale(1.05);
 }
 
 #middle-box .buttons {
@@ -89,6 +110,12 @@ body {
   font-size: 1.5em;
   cursor: pointer;
   color: #fff;
+  transition: transform .3s ease, color .3s ease;
+}
+
+#middle-box button:hover {
+  transform: scale(1.2);
+  color: #ffcc00;
 }
 
 .zone {
@@ -117,7 +144,6 @@ body {
 
 #instruments {
   height: 200px;
-  /* background-color: antiquewhite; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -138,23 +164,39 @@ body {
   border: 3px solid #fff;
   border-radius: 5px;
   color: #fff;
+  transition: transform 0.3s ease;
+}
+
+#instruments div:hover {
+  transform: scale(1.1);
 }
 
 .instruments-image {
   width: 60px;
   height: 60px;
-}
-#stopButton img {
-  width: 20px;
-  height: 20px;
+  transition: transform 0.3s ease;
 }
 
+.instruments-image:hover {
+  transform: rotate(15deg) scale(1.2);
+}
+
+#stopButton img,
+#pauseButton img,
 #pauseButton img {
-  width: 20px;
-  height: 20px;
+  transition: transform .3s ease;
 }
 
-#playButton img {
+#stopButton img:hover,
+#pauseButton img:hover,
+#pauseButton img:hover {
+  transform: rotate(360deg);
+}
+
+#stopButton img,
+#pauseButton img,
+#playButton img
+ {
   width: 20px;
   height: 20px;
 }
@@ -169,8 +211,8 @@ body {
   left: 0;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.786);
-
   display: none;
+  transition: opacity 0.3s ease;
 }
 
 .lightbox_close {
@@ -182,6 +224,7 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s linear;
+  transition: color 0.3s ease;
 }
 
 .lightbox_close:hover {
@@ -206,6 +249,7 @@ body {
 
 .lightbox:target {
   display: block;
+  opacity: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -234,6 +278,7 @@ body {
     width: 100vw;
     height: 100vh;
   }
+
   .instruments-image {
     width: 120px;
     height: 120px;
